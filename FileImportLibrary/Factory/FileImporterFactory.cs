@@ -16,7 +16,7 @@ namespace FileImportLibrary
             // Discover supported file extensions that can be imported at runtime
             var assembly = Assembly.GetExecutingAssembly();
             importerTypes.AddRange(assembly.GetTypes()
-                .Where(t => !t.IsAbstract && t.BaseType != null && t.BaseType.IsGenericType && t.BaseType.GetGenericTypeDefinition() == typeof(FileImporterBase)));
+                .Where(t => !t.IsAbstract && t.BaseType != null && t.BaseType == typeof(FileImporterBase)));
         }
 
 
